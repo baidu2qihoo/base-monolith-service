@@ -5,6 +5,7 @@ import io.micrometer.core.instrument.Timer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -17,6 +18,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class UnifiedMetricsService {
 
     private final MeterRegistry meterRegistry;
+    private final ConcurrentHashMap<String, AtomicInteger> gauges = new ConcurrentHashMap<>();
 
     public UnifiedMetricsService(MeterRegistry meterRegistry) {
         this.meterRegistry = meterRegistry;
@@ -58,8 +60,13 @@ public class UnifiedMetricsService {
      */
     public void recordBusinessMetric(String metricName, Number value) {
         // 使用AtomicInteger来支持gauge的动态更新
-        AtomicInteger atomicValue = new AtomicInteger(value.intValue());
-        meterRegistry.gauge(metricName, atomicValue, AtomicInteger::get);
+        AtomicInteger atomicValue = gauges.computeIfAbsent(metricName, 
+            k -> {
+                AtomicInteger newValue = new AtomicInteger(value.intValue());
+                meterRegistry.gauge(metricName, newValue, AtomicInteger::get);
+                return newValue;
+            });
+        atomicValue.set(value.intValue());
         log.debug("Recorded business metric: {} = {}", metricName, value);
     }
 }

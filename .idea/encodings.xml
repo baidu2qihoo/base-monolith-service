@@ -10,7 +10,9 @@
     <file url="file://$PROJECT_DIR$/monolith-gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/monolith-gateway/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/monolith-metrics/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/monolith-metrics/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/monolith-registry/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/monolith-registry/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/monolith-stability/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/monolith-stability/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/monolith-test/src/main/java" charset="UTF-8" />
