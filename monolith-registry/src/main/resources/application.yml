@@ -1,0 +1,35 @@
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:mysql://localhost:3306/appdb?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC}
+    username: ${DB_USERNAME:appuser}
+    password: ${DB_PASSWORD:change-me}
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+registry:
+  cleanup:
+    interval:
+      ms: 60000
+
+# Nacos配置
+nacos:
+  discovery:
+    server-addr: ${NACOS_ADDR:localhost:8848}
+    namespace: ${NACOS_NAMESPACE:public}
+    group: ${NACOS_GROUP:DEFAULT_GROUP}
+    username: ${NACOS_USERNAME:nacos}
+    password: ${NACOS_PASSWORD:nacos}
+    
+server:
+  port: 8848
+
+# 服务健康检查配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always

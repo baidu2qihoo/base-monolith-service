@@ -1,0 +1,118 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: monolith-metrics
+  profiles:
+    active: ${APP_ENV:dev}
+
+# 环境标识
+app:
+  env: ${APP_ENV:dev}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus,info,metrics
+  endpoint:
+    health:
+      show-details: always
+    prometheus:
+      enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+    distribution:
+      percentiles-histogram:
+        all: true
+      percentiles:
+        all: 0.5,0.9,0.95,0.99
+      sla:
+        all: 1ms,5ms,10ms,50ms,100ms,500ms,1s,5s
+    # 添加环境标签
+    tags:
+      env: ${APP_ENV:dev}
+      application: ${spring.application.name}
+
+# Prometheus配置
+management:
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+        step: 10s
+
+# Redis监控配置
+spring:
+  redis:
+    host: ${REDIS_HOST:localhost}
+    port: ${REDIS_PORT:6379}
+    timeout: 2000ms
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+
+# Apollo配置中心集成 - 环境隔离
+apollo:
+  bootstrap:
+    enabled: true
+    # 根据环境加载不同的命名空间
+    namespaces: MetricsConfig-${APP_ENV:dev}
+  meta: ${APOLLO_META:http://localhost:8080}
+
+---
+# 开发环境配置
+spring:
+  config:
+    activate:
+      on-profile: dev
+app:
+  env: dev
+management:
+  metrics:
+    tags:
+      env: dev
+
+---
+# 测试环境配置
+spring:
+  config:
+    activate:
+      on-profile: test
+app:
+  env: test
+management:
+  metrics:
+    tags:
+      env: test
+
+---
+# 灰度环境配置
+spring:
+  config:
+    activate:
+      on-profile: gray
+app:
+  env: gray
+management:
+  metrics:
+    tags:
+      env: gray
+
+---
+# 生产环境配置
+spring:
+  config:
+    activate:
+      on-profile: prod
+app:
+  env: prod
+management:
+  metrics:
+    tags:
+      env: prod

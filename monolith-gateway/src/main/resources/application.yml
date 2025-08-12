@@ -1,0 +1,101 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: monolith-gateway
+  profiles:
+    active: ${APP_ENV:dev}
+    
+# 环境标识
+app:
+  env: ${APP_ENV:dev}
+
+# Nacos服务发现配置 - 环境隔离
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${NACOS_ADDR:localhost:8848}
+        # 根据环境使用不同的namespace实现隔离
+        namespace: ${NACOS_NAMESPACE:${APP_ENV:dev}}
+        group: ${NACOS_GROUP:DEFAULT_GROUP}
+        # 添加环境元数据
+        metadata:
+          env: ${APP_ENV:dev}
+          
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        # 默认路由规则
+        - id: service-route
+          uri: lb://monolith-service
+          predicates:
+            - Path=/api/**
+          filters:
+            - StripPrefix=1
+
+# Sentinel限流配置 - 环境隔离
+spring:
+  cloud:
+    sentinel:
+      transport:
+        dashboard: ${SENTINEL_DASHBOARD:localhost:8080}
+        port: ${SENTINEL_PORT:8719}
+      eager: true
+      # 根据环境加载不同的规则
+      datasource:
+        ds1:
+          nacos:
+            server-addr: ${NACOS_ADDR:localhost:8848}
+            # 环境特定的dataId
+            dataId: ${spring.application.name}-${APP_ENV:dev}-sentinel
+            groupId: SENTINEL_GROUP
+            ruleType: flow
+
+# 日志配置
+logging:
+  level:
+    org.springframework.cloud.gateway: ${GATEWAY_LOG_LEVEL:DEBUG}
+
+---
+# 开发环境配置
+spring:
+  config:
+    activate:
+      on-profile: dev
+app:
+  env: dev
+
+---
+# 测试环境配置
+spring:
+  config:
+    activate:
+      on-profile: test
+app:
+  env: test
+
+---
+# 灰度环境配置
+spring:
+  config:
+    activate:
+      on-profile: gray
+app:
+  env: gray
+
+---
+# 生产环境配置
+spring:
+  config:
+    activate:
+      on-profile: prod
+app:
+  env: prod
+logging:
+  level:
+    org.springframework.cloud.gateway: WARN

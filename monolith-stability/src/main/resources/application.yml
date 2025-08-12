@@ -1,0 +1,87 @@
+spring:
+  application:
+    name: monolith-stability
+  profiles:
+    active: ${APP_ENV:dev}
+
+# 环境标识
+app:
+  env: ${APP_ENV:dev}
+
+# Sentinel配置 - 环境隔离
+spring:
+  cloud:
+    sentinel:
+      transport:
+        dashboard: ${SENTINEL_DASHBOARD:localhost:8080}
+        port: ${SENTINEL_PORT:8719}
+      eager: true
+      # 根据环境加载不同的规则
+      datasource:
+        flow-rules:
+          nacos:
+            server-addr: ${NACOS_ADDR:localhost:8848}
+            # 环境特定的dataId
+            dataId: ${spring.application.name}-${APP_ENV:dev}-flow-rules
+            groupId: SENTINEL_GROUP
+            ruleType: flow
+        degrade-rules:
+          nacos:
+            server-addr: ${NACOS_ADDR:localhost:8848}
+            # 环境特定的dataId
+            dataId: ${spring.application.name}-${APP_ENV:dev}-degrade-rules
+            groupId: SENTINEL_GROUP
+            ruleType: degrade
+
+# Apollo配置中心集成 - 环境隔离
+apollo:
+  bootstrap:
+    enabled: true
+    # 根据环境加载不同的命名空间
+    namespaces: SentinelConfig-${APP_ENV:dev}
+  meta: ${APOLLO_META:http://localhost:8080}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,sentinel
+  endpoint:
+    health:
+      show-details: always
+
+---
+# 开发环境配置
+spring:
+  config:
+    activate:
+      on-profile: dev
+app:
+  env: dev
+
+---
+# 测试环境配置
+spring:
+  config:
+    activate:
+      on-profile: test
+app:
+  env: test
+
+---
+# 灰度环境配置
+spring:
+  config:
+    activate:
+      on-profile: gray
+app:
+  env: gray
+
+---
+# 生产环境配置
+spring:
+  config:
+    activate:
+      on-profile: prod
+app:
+  env: prod
