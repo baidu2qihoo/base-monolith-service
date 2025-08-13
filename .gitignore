@@ -1,17 +1,5 @@
-# IDE
+target/
+*.log
 .idea/
 *.iml
-out/
-target/
-
-# Logs
-*.log
-
-# OS
 .DS_Store
-Thumbs.db
-
-# Maven Wrapper
-.mvn/
-mvnw
-mvnw.cmd

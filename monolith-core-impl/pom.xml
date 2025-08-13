@@ -1,22 +1,58 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>com.hugh.base.service</groupId>
-    <artifactId>base-monolith-service</artifactId>
-    <version>1.0.0</version>
-  </parent>
-  <artifactId>monolith-core-impl</artifactId>
-  <dependencies>
-    <dependency>
-  <groupId>com.hugh.base.service</groupId>
-  <artifactId>monolith-core-api</artifactId>
-  <version>1.0.0</version>
-</dependency>
-<dependency>
-  <groupId>org.springframework.boot</groupId>
-  <artifactId>spring-boot-starter</artifactId>
-</dependency>
+<?xml version='1.0' encoding='utf-8'?>
+<ns0:project xmlns:ns0="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <ns0:modelVersion>4.0.0</ns0:modelVersion>
+  <ns0:parent>
+    <ns0:groupId>com.hugh.base.service</ns0:groupId>
+    <ns0:artifactId>base-monolith-service</ns0:artifactId>
+    <ns0:version>1.0.0</ns0:version>
+  </ns0:parent>
+  <ns0:artifactId>monolith-core-impl</ns0:artifactId>
+  <ns0:dependencies>
 
-  </dependencies>
-</project>
+    <ns0:dependency>
+      <ns0:groupId>io.atomix</ns0:groupId>
+      <ns0:artifactId>atomix</ns0:artifactId>
+      </ns0:dependency>
+    <ns0:dependency>
+      <ns0:groupId>org.springframework.boot</ns0:groupId>
+      <ns0:artifactId>spring-boot-starter-security</ns0:artifactId>
+    </ns0:dependency>
+    <ns0:dependency>
+      <ns0:groupId>org.springframework.security</ns0:groupId>
+      <ns0:artifactId>spring-security-oauth2-jose</ns0:artifactId>
+    </ns0:dependency>
+    <ns0:dependency>
+      <ns0:groupId>com.nimbusds</ns0:groupId>
+      <ns0:artifactId>nimbus-jose-jwt</ns0:artifactId>
+      </ns0:dependency>
+    <ns0:dependency>
+      <ns0:groupId>org.springframework.boot</ns0:groupId>
+      <ns0:artifactId>spring-boot-starter-data-jpa</ns0:artifactId>
+    </ns0:dependency>
+    <ns0:dependency>
+      <ns0:groupId>mysql</ns0:groupId>
+      <ns0:artifactId>mysql-connector-j</ns0:artifactId>
+      <ns0:scope>runtime</ns0:scope>
+    </ns0:dependency>
+    <ns0:dependency>
+      <ns0:groupId>org.springframework.boot</ns0:groupId>
+      <ns0:artifactId>spring-boot-starter-data-redis</ns0:artifactId>
+    </ns0:dependency>
+    <ns0:dependency>
+      <ns0:groupId>io.micrometer</ns0:groupId>
+      <ns0:artifactId>micrometer-core</ns0:artifactId>
+    </ns0:dependency>
+    <ns0:dependency>
+      <ns0:groupId>org.flywaydb</ns0:groupId>
+      <ns0:artifactId>flyway-core</ns0:artifactId>
+    </ns0:dependency>
+    <ns0:dependency>
+      <ns0:groupId>com.hugh.base.service</ns0:groupId>
+      <ns0:artifactId>monolith-core-api</ns0:artifactId>
+      </ns0:dependency>
+    <ns0:dependency>
+      <ns0:groupId>org.springframework.boot</ns0:groupId>
+      <ns0:artifactId>spring-boot-starter</ns0:artifactId>
+    </ns0:dependency>
+  </ns0:dependencies>
+</ns0:project>

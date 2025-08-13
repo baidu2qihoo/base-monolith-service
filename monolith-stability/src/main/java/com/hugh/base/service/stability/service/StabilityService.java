@@ -75,9 +75,9 @@ public class StabilityService {
         }
     }
 
-    private java.util.Map<String, Object> parseJsonToMap(String json) {
+    private Map<String, Object> parseJsonToMap(String json) {
         try {
-            return new com.fasterxml.jackson.databind.ObjectMapper().readValue(json, java.util.Map.class);
+            return new com.fasterxml.jackson.databind.ObjectMapper().readValue(json, Map.class);
         } catch (Exception e) {
             log.error("parseJsonToMap error", e);
             return java.util.Collections.emptyMap();

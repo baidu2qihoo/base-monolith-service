@@ -1,23 +1,13 @@
-# base-monolith-service (refactor seed)
-GroupId: `com.hugh.base.service`, Java 17, Spring Boot 3.2.x
+# Migrated base-monolith-service (no git history)
 
-## Quick start
-```bash
-bash scripts/init-mysql.sh
-bash scripts/init-redis.sh
-mvn -T 1C clean package
-java -jar monolith-app/target/monolith-app-1.0.0.jar
-```
+This project was migrated automatically from the uploaded repository.
+Modules created: monolith-core-api, monolith-core-impl, monolith-config, monolith-registry, monolith-gateway, monolith-stability, monolith-tracing, monolith-metrics, monolith-app, monolith-test
 
-## Modules
-- monolith-core-api / monolith-core-impl
-- monolith-config (Flyway enabled)
-- monolith-registry (Flyway enabled)
-- monolith-stability (Flyway enabled)
-- monolith-gateway / monolith-tracing / monolith-metrics
-- monolith-app / monolith-test
+## How to build locally
+- Ensure Java 17 and Maven are installed.
+- Start a local MySQL and Redis or adjust `application.yml` in modules.
+- From project root run: `mvn -T 1C -DskipTests package`
 
-## Infra
-- dashboards/: Grafana templates
-- alerts/: Prometheus rules
-- .github/workflows/build.yml: CI pipeline
+## Notes
+- Dependency merging was best-effort from original module poms. Please review each `pom.xml` in modules for version alignment and remove duplicates/conflicts.
+- This migration does NOT preserve Git history (per your instruction).

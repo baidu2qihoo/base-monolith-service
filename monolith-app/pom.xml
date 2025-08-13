@@ -1,57 +1,49 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>com.hugh.base.service</groupId>
-    <artifactId>base-monolith-service</artifactId>
-    <version>1.0.0</version>
-  </parent>
-  <artifactId>monolith-app</artifactId>
-  <dependencies>
-    <dependency>
-  <groupId>org.springframework.boot</groupId>
-  <artifactId>spring-boot-starter</artifactId>
-</dependency>
-<dependency>
-  <groupId>com.hugh.base.service</groupId>
-  <artifactId>monolith-core-api</artifactId>
-  <version>1.0.0</version>
-</dependency>
-<dependency>
-  <groupId>com.hugh.base.service</groupId>
-  <artifactId>monolith-core-impl</artifactId>
-  <version>1.0.0</version>
-</dependency>
-<dependency>
-  <groupId>com.hugh.base.service</groupId>
-  <artifactId>monolith-config</artifactId>
-  <version>1.0.0</version>
-</dependency>
-<dependency>
-  <groupId>com.hugh.base.service</groupId>
-  <artifactId>monolith-registry</artifactId>
-  <version>1.0.0</version>
-</dependency>
-<dependency>
-  <groupId>com.hugh.base.service</groupId>
-  <artifactId>monolith-gateway</artifactId>
-  <version>1.0.0</version>
-</dependency>
-<dependency>
-  <groupId>com.hugh.base.service</groupId>
-  <artifactId>monolith-stability</artifactId>
-  <version>1.0.0</version>
-</dependency>
-<dependency>
-  <groupId>com.hugh.base.service</groupId>
-  <artifactId>monolith-tracing</artifactId>
-  <version>1.0.0</version>
-</dependency>
-<dependency>
-  <groupId>com.hugh.base.service</groupId>
-  <artifactId>monolith-metrics</artifactId>
-  <version>1.0.0</version>
-</dependency>
+<?xml version='1.0' encoding='utf-8'?>
+<ns0:project xmlns:ns0="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <ns0:modelVersion>4.0.0</ns0:modelVersion>
+  <ns0:parent>
+    <ns0:groupId>com.hugh.base.service</ns0:groupId>
+    <ns0:artifactId>base-monolith-service</ns0:artifactId>
+    <ns0:version>1.0.0</ns0:version>
+  </ns0:parent>
+  <ns0:artifactId>monolith-app</ns0:artifactId>
+  <ns0:dependencies>
 
-  </dependencies>
-</project>
+    <ns0:dependency>
+      <ns0:groupId>org.springframework.boot</ns0:groupId>
+      <ns0:artifactId>spring-boot-starter</ns0:artifactId>
+    </ns0:dependency>
+    <ns0:dependency>
+      <ns0:groupId>com.hugh.base.service</ns0:groupId>
+      <ns0:artifactId>monolith-core-api</ns0:artifactId>
+      </ns0:dependency>
+    <ns0:dependency>
+      <ns0:groupId>com.hugh.base.service</ns0:groupId>
+      <ns0:artifactId>monolith-core-impl</ns0:artifactId>
+      </ns0:dependency>
+    <ns0:dependency>
+      <ns0:groupId>com.hugh.base.service</ns0:groupId>
+      <ns0:artifactId>monolith-config</ns0:artifactId>
+      </ns0:dependency>
+    <ns0:dependency>
+      <ns0:groupId>com.hugh.base.service</ns0:groupId>
+      <ns0:artifactId>monolith-registry</ns0:artifactId>
+      </ns0:dependency>
+    <ns0:dependency>
+      <ns0:groupId>com.hugh.base.service</ns0:groupId>
+      <ns0:artifactId>monolith-gateway</ns0:artifactId>
+      </ns0:dependency>
+    <ns0:dependency>
+      <ns0:groupId>com.hugh.base.service</ns0:groupId>
+      <ns0:artifactId>monolith-stability</ns0:artifactId>
+      </ns0:dependency>
+    <ns0:dependency>
+      <ns0:groupId>com.hugh.base.service</ns0:groupId>
+      <ns0:artifactId>monolith-tracing</ns0:artifactId>
+      </ns0:dependency>
+    <ns0:dependency>
+      <ns0:groupId>com.hugh.base.service</ns0:groupId>
+      <ns0:artifactId>monolith-metrics</ns0:artifactId>
+      </ns0:dependency>
+  </ns0:dependencies>
+</ns0:project>
