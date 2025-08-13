@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS service_instance (
+  id BIGINT PRIMARY KEY AUTO_INCREMENT,
+  service_name VARCHAR(128) NOT NULL,
+  instance_id VARCHAR(128) NOT NULL,
+  host VARCHAR(128) NOT NULL,
+  port INT NOT NULL,
+  status VARCHAR(16) NOT NULL DEFAULT 'UP',
+  last_heartbeat TIMESTAMP NULL,
+  tenant_id VARCHAR(64) NOT NULL,
+  env VARCHAR(32) NOT NULL
+);

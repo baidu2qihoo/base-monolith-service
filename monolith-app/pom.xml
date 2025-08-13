@@ -1,155 +1,57 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-
-  <groupId>com.hugh.base.service</groupId>
-  <artifactId>monolith-app</artifactId>
-  <version>${project.version}</version>
-  <packaging>jar</packaging>
-
   <parent>
     <groupId>com.hugh.base.service</groupId>
     <artifactId>base-monolith-service</artifactId>
     <version>1.0.0</version>
-    <relativePath>../pom.xml</relativePath>
   </parent>
-
-  <properties>
-    <java.version>17</java.version>
-  </properties>
-
+  <artifactId>monolith-app</artifactId>
   <dependencies>
-    <!-- 核心业务模块 -->
     <dependency>
-      <groupId>com.hugh.base.service</groupId>
-      <artifactId>monolith-core</artifactId>
-    </dependency>
-
-    <!-- 配置管理模块 -->
-    <dependency>
-      <groupId>com.hugh.base.service</groupId>
-      <artifactId>monolith-config</artifactId>
-    </dependency>
-
-    <!-- 服务注册发现模块 -->
-    <dependency>
-      <groupId>com.hugh.base.service</groupId>
-      <artifactId>monolith-registry</artifactId>
-    </dependency>
-
-    <!-- 网关模块 -->
-    <dependency>
-      <groupId>com.hugh.base.service</groupId>
-      <artifactId>monolith-gateway</artifactId>
-    </dependency>
-
-    <!-- 稳定性管理模块 -->
-    <dependency>
-      <groupId>com.hugh.base.service</groupId>
-      <artifactId>monolith-stability</artifactId>
-    </dependency>
-
-    <!-- 链路追踪模块 -->
-    <dependency>
-      <groupId>com.hugh.base.service</groupId>
-      <artifactId>monolith-tracing</artifactId>
-    </dependency>
-
-    <!-- 监控指标模块 -->
-    <dependency>
-      <groupId>com.hugh.base.service</groupId>
-      <artifactId>monolith-metrics</artifactId>
-    </dependency>
-
-    <!-- Spring Boot Actuator -->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-actuator</artifactId>
-    </dependency>
-
-    <!-- Spring Web -->
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
-
-    <!-- Spring Cloud Gateway -->
-    <dependency>
-      <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter-gateway</artifactId>
-    </dependency>
-
-    <!-- Spring Cloud LoadBalancer -->
-    <dependency>
-      <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter-loadbalancer</artifactId>
-    </dependency>
-
-    <!-- Spring Cloud Alibaba Nacos Discovery -->
-    <dependency>
-      <groupId>com.alibaba.cloud</groupId>
-      <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-    </dependency>
-
-    <!-- Sentinel -->
-    <dependency>
-      <groupId>com.alibaba.cloud</groupId>
-      <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
-    </dependency>
-
-    <!-- Sentinel Nacos DataSource -->
-    <dependency>
-      <groupId>com.alibaba.csp</groupId>
-      <artifactId>sentinel-datasource-nacos</artifactId>
-    </dependency>
-
-    <!-- Apollo -->
-    <dependency>
-      <groupId>com.ctrip.framework.apollo</groupId>
-      <artifactId>apollo-client</artifactId>
-      <version>2.1.0</version>
-    </dependency>
-
-    <!-- Skywalking Toolkit -->
-    <dependency>
-      <groupId>org.apache.skywalking</groupId>
-      <artifactId>apm-toolkit-trace</artifactId>
-    </dependency>
-
-    <!-- Micrometer Prometheus -->
-    <dependency>
-      <groupId>io.micrometer</groupId>
-      <artifactId>micrometer-registry-prometheus</artifactId>
-    </dependency>
-
-    <!-- Lombok -->
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-commons</artifactId>
-    </dependency>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter</artifactId>
+</dependency>
+<dependency>
+  <groupId>com.hugh.base.service</groupId>
+  <artifactId>monolith-core-api</artifactId>
+  <version>1.0.0</version>
+</dependency>
+<dependency>
+  <groupId>com.hugh.base.service</groupId>
+  <artifactId>monolith-core-impl</artifactId>
+  <version>1.0.0</version>
+</dependency>
+<dependency>
+  <groupId>com.hugh.base.service</groupId>
+  <artifactId>monolith-config</artifactId>
+  <version>1.0.0</version>
+</dependency>
+<dependency>
+  <groupId>com.hugh.base.service</groupId>
+  <artifactId>monolith-registry</artifactId>
+  <version>1.0.0</version>
+</dependency>
+<dependency>
+  <groupId>com.hugh.base.service</groupId>
+  <artifactId>monolith-gateway</artifactId>
+  <version>1.0.0</version>
+</dependency>
+<dependency>
+  <groupId>com.hugh.base.service</groupId>
+  <artifactId>monolith-stability</artifactId>
+  <version>1.0.0</version>
+</dependency>
+<dependency>
+  <groupId>com.hugh.base.service</groupId>
+  <artifactId>monolith-tracing</artifactId>
+  <version>1.0.0</version>
+</dependency>
+<dependency>
+  <groupId>com.hugh.base.service</groupId>
+  <artifactId>monolith-metrics</artifactId>
+  <version>1.0.0</version>
+</dependency>
 
   </dependencies>
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <source>${java.version}</source>
-          <target>${java.version}</target>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-maven-plugin</artifactId>
-      </plugin>
-    </plugins>
-  </build>
 </project>

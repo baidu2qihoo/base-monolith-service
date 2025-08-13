@@ -6,20 +6,8 @@
     <artifactId>base-monolith-service</artifactId>
     <version>1.0.0</version>
   </parent>
-  <artifactId>monolith-config</artifactId>
+  <artifactId>monolith-core-api</artifactId>
   <dependencies>
-    <dependency>
-  <groupId>org.springframework.boot</groupId>
-  <artifactId>spring-boot-starter-web</artifactId>
-</dependency>
-<dependency>
-  <groupId>mysql</groupId>
-  <artifactId>mysql-connector-j</artifactId>
-</dependency>
-<dependency>
-  <groupId>org.flywaydb</groupId>
-  <artifactId>flyway-core</artifactId>
-</dependency>
-
+    
   </dependencies>
 </project>
